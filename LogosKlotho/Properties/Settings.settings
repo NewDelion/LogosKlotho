@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="LogosKlotho.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="font_name" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Consolas</Value>
+    </Setting>
+    <Setting Name="font_size" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="font_style" Type="System.String" Scope="User">
+      <Value Profile="(Default)">normal</Value>
+    </Setting>
+    <Setting Name="font_weight" Type="System.String" Scope="User">
+      <Value Profile="(Default)">normal</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

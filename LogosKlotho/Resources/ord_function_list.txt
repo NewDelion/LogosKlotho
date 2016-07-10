@@ -1,0 +1,12 @@
+﻿getServer
+getPluginManager
+registerEvents
+getDataFolder
+getPlayer
+getEntity
+getBlock
+getLevel
+sendMessage
+sendPopup
+sendTip
+broadcastMessage

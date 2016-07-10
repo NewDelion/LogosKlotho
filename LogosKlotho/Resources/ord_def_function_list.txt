@@ -1,0 +1,5 @@
+﻿onEnable
+onCommand
+onDisable
+onPlayerJoin
+onPlayerQuit

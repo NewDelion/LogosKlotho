@@ -1,0 +1,10 @@
+﻿namespace
+use
+class
+extends
+implements
+public
+private
+protected
+function
+instanceof
