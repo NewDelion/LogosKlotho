@@ -8,4 +8,4 @@ https://github.com/NewDelion/LogosKlotho/raw/master/LogosKlotho.zip
 
 最初にインストーラを解凍した場所に、新しいインストーラを解凍してインストール
 
-または、古いLobiNoticerをアンインストールしてインストールする
+または、古いLogosKlothoをアンインストールしてインストールする
