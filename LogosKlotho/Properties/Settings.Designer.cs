@@ -70,5 +70,53 @@ namespace LogosKlotho.Properties {
                 this["font_weight"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool show_statusbar {
+            get {
+                return ((bool)(this["show_statusbar"]));
+            }
+            set {
+                this["show_statusbar"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool show_linenumber {
+            get {
+                return ((bool)(this["show_linenumber"]));
+            }
+            set {
+                this["show_linenumber"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool enable_autocomplete {
+            get {
+                return ((bool)(this["enable_autocomplete"]));
+            }
+            set {
+                this["enable_autocomplete"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool enable_autoindent {
+            get {
+                return ((bool)(this["enable_autoindent"]));
+            }
+            set {
+                this["enable_autoindent"] = value;
+            }
+        }
     }
 }

@@ -47,6 +47,10 @@ namespace LogosKlotho
 
         private Status status = null;
 
+
+        private bool EnableAutoComplete = true;
+        private bool EnableAutoIndent = true;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -69,6 +73,7 @@ namespace LogosKlotho
 
             LoadWordListSetting();
             LoadUseHierarchy();
+            LoadSetting();
 
             //ICSharpCode.AvalonEdit.Search.SearchPanel.Install(textEditor);
 
@@ -117,6 +122,27 @@ namespace LogosKlotho
             ord_def_function_list = System.IO.File.ReadAllLines("setting\\ord_def_function_list").Where(d => d != "").ToList();
         }
 
+        private void LoadSetting()
+        {
+            if (!Properties.Settings.Default.show_statusbar)
+            {
+                statusBar.Visibility = Visibility.Collapsed;
+                textEditor.Margin = new Thickness(textEditor.Margin.Left, textEditor.Margin.Top, textEditor.Margin.Right, 0.0);
+            }
+            if (!Properties.Settings.Default.show_linenumber)
+            {
+                textEditor.ShowLineNumbers = false;
+            }
+            if (!Properties.Settings.Default.enable_autocomplete)
+            {
+                EnableAutoComplete = false;
+            }
+            if (!Properties.Settings.Default.enable_autoindent)
+            {
+                EnableAutoIndent = false;
+            }
+        }
+
         
 
         private void GetWordList(IList<ICompletionData> data, string type = "all")
@@ -130,6 +156,12 @@ namespace LogosKlotho
                     MatchCollection mc = Regex.Matches(textEditor.Text, "use ([a-zA-Z0-9]+\\\\)*([a-zA-Z0-9]+)( as ([a-zA-Z0-9]+))?;");
                     foreach (Match m in mc)
                         result.Add(new WordCompletionData(m.Groups[4].Value == "" ? m.Groups[2].Value : m.Groups[4].Value, ToWPFBitmap(Properties.Resources.file)));
+                    if (textEditor.SelectionStart >= 2)
+                    {
+                        mc = Regex.Matches(textEditor.Text.Substring(0, textEditor.SelectionStart - 2), @"\$(?<var>[a-zA-Z0-9_]+)");
+                        foreach (Match m in mc)
+                            result.Add(new WordCompletionData(m.Groups["var"].Value, "$" + m.Groups["var"].Value));
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -409,7 +441,7 @@ namespace LogosKlotho
 
         private void textEditor_TextArea_KeyDown(object sender, KeyEventArgs e)
         {
-            if ((Keyboard.Modifiers & ModifierKeys.Control) != ModifierKeys.None && e.Key == Key.Space && completionWindow == null)
+            if (EnableAutoComplete && (Keyboard.Modifiers & ModifierKeys.Control) != ModifierKeys.None && e.Key == Key.Space && completionWindow == null)
             {
                 showCompletionWindow("all", true);
                 e.Handled = true;
@@ -459,11 +491,11 @@ namespace LogosKlotho
 
         private void textEditor_TextArea_TextEntered(object sender, TextCompositionEventArgs e)
         {
-            if (e.Text == ">" && textEditor.Text.Length > 1 && textEditor.Text[textEditor.SelectionStart - 2] == '-')
+            if (EnableAutoComplete && e.Text == ">" && textEditor.Text.Length > 1 && textEditor.Text[textEditor.SelectionStart - 2] == '-')
             {
                 showCompletionWindow("function");
             }
-            if (completionWindow == null && char.IsLetterOrDigit(e.Text[0]) && GetCurrentWord(textEditor.SelectionStart).Length == 1)
+            if (EnableAutoComplete && completionWindow == null && char.IsLetterOrDigit(e.Text[0]) && GetCurrentWord(textEditor.SelectionStart).Length == 1)
             {
                 int start = GetStartOffset(textEditor.SelectionStart);
                 if (start > 2 && textEditor.Text[start - 1] == '>' && textEditor.Text[start - 2] == '-')
@@ -493,10 +525,10 @@ namespace LogosKlotho
                         showCompletionWindow("use_", true, wordList);
                     //use_path == "" => textEditor.Text[textEditor.SelectionStart - 1] == 'p'
                 }
-                else
+                else if (!textEditor.TextArea.Selection.IsMultiline)
                     showCompletionWindow("word", true);
             }
-            else if (e.Text == "\n")
+            else if (EnableAutoIndent && e.Text == "\n")
             {
                 bool check = true;
                 bool newLineOnce = false;
@@ -525,7 +557,7 @@ namespace LogosKlotho
                     //DocumentLine dline=textEditor.Document.GetLineByOffset()
                 }
             }
-            else if (e.Text == "}")
+            else if (EnableAutoIndent && e.Text == "}")
             {
                 int index = textEditor.SelectionStart - 1;
                 bool ok = true;
@@ -777,6 +809,44 @@ namespace LogosKlotho
                 Properties.Settings.Default.font_weight = textEditor.FontWeight == FontWeights.Normal ? "normal" : "bold";
                 Properties.Settings.Default.Save();
             }
+        }
+
+        private void Menu_Setting(object sender, RoutedEventArgs e)
+        {
+            SettingWindow setting = new SettingWindow();
+            setting.ShowStatusBar = Properties.Settings.Default.show_statusbar;
+            setting.ShowLineNumber = Properties.Settings.Default.show_linenumber;
+            setting.EnableAutoComplete = Properties.Settings.Default.enable_autocomplete;
+            setting.EnableAutoIndent = Properties.Settings.Default.enable_autoindent;
+            setting.ShowDialog();
+            bool change = false;
+            if(Properties.Settings.Default.show_statusbar != setting.ShowStatusBar)
+            {
+                statusBar.Visibility = setting.ShowStatusBar ? Visibility.Visible : Visibility.Collapsed;
+                textEditor.Margin = new Thickness(textEditor.Margin.Left, textEditor.Margin.Top, textEditor.Margin.Right, setting.ShowStatusBar ? statusBar.Height : 0.0);
+                Properties.Settings.Default.show_statusbar = setting.ShowStatusBar;
+                change = true;
+            }
+            if (Properties.Settings.Default.show_linenumber != setting.ShowLineNumber)
+            {
+                textEditor.ShowLineNumbers = setting.ShowLineNumber;
+                Properties.Settings.Default.show_linenumber = setting.ShowLineNumber;
+                change = true;
+            }
+            if (Properties.Settings.Default.enable_autocomplete != setting.EnableAutoComplete)
+            {
+                EnableAutoComplete = setting.EnableAutoComplete;
+                Properties.Settings.Default.enable_autocomplete = setting.EnableAutoComplete;
+                change = true;
+            }
+            if (Properties.Settings.Default.enable_autoindent != setting.EnableAutoIndent)
+            {
+                EnableAutoIndent = setting.EnableAutoIndent;
+                Properties.Settings.Default.enable_autoindent = setting.EnableAutoIndent;
+                change = true;
+            }
+            if (change)
+                Properties.Settings.Default.Save();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

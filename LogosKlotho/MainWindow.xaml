@@ -37,6 +37,7 @@
                 <MenuItem Header="Browse Database" Click="Menu_Browse_Database" />
                 <MenuItem Header="Browse Setting" Click="Menu_Browse_Setting" />
                 <MenuItem Header="フォント" Click="Menu_Font" />
+                <MenuItem Header="設定" Click="Menu_Setting" />
             </MenuItem>
         </Menu>
         <avalonEdit:TextEditor x:Name="textEditor"
