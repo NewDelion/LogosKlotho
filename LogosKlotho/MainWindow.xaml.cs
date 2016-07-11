@@ -24,6 +24,7 @@ using System.Drawing;
 using Microsoft.Win32;
 using System.Runtime.InteropServices;
 using System.Windows.Interop;
+using System.ComponentModel;
 
 namespace LogosKlotho
 {
@@ -44,9 +45,13 @@ namespace LogosKlotho
 
         private FindReplace.FindReplaceMgr FRManager = null;
 
+        private Status status = null;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            DataContext = this;
 
             using (var reader = new XmlTextReader(System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream("LogosKlotho.PHP-Mode.xshd")))
                 textEditor.SyntaxHighlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
@@ -54,6 +59,11 @@ namespace LogosKlotho
             textEditor.TextArea.TextEntering += textEditor_TextArea_TextEntering;
             textEditor.TextArea.TextEntered += textEditor_TextArea_TextEntered;
             textEditor.TextArea.KeyDown += textEditor_TextArea_KeyDown;
+            textEditor.TextArea.Caret.PositionChanged += textEditor_TextArea_Caret_PositionChanged;
+
+            status = new Status();
+            text_line.DataContext = status;
+            text_column.DataContext = status;
 
             textEditor.Focus();
 
@@ -82,6 +92,11 @@ namespace LogosKlotho
                 FontStyles.Normal : FontStyles.Italic;
             textEditor.FontWeight = Properties.Settings.Default.font_weight == "normal" ?
                 FontWeights.Normal : FontWeights.Bold;
+
+
+
+            
+            
         }
 
         private void LoadWordListSetting()
@@ -548,7 +563,7 @@ namespace LogosKlotho
                 }
             }
         }
-
+        
         private void completionWindow_CompletionList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (completionWindow.CompletionList.ListBox.Items.Count == 0)
@@ -556,6 +571,12 @@ namespace LogosKlotho
                 completionWindow.Close();
                 completionWindow = null;
             }
+        }
+
+        private void textEditor_TextArea_Caret_PositionChanged(object sender, EventArgs e)
+        {
+            status.Line = textEditor.TextArea.Caret.Line;
+            status.Column = textEditor.TextArea.Caret.Column;
         }
 
         public class WordCompletionData : ICompletionData
@@ -627,6 +648,35 @@ namespace LogosKlotho
                 this.owner_class = owner_class;
                 this.name = name;
                 this.description = description;
+            }
+        }
+
+        public class Status : INotifyPropertyChanged
+        {
+            public event PropertyChangedEventHandler PropertyChanged;
+
+            private int line = 1;
+            private int column = 1;
+
+            public int Line
+            {
+                get { return line; }
+                set { line = value; NotifiyPropertyChanged("Line"); }
+            }
+
+            public int Column
+            {
+                get { return column; }
+                set { column = value; NotifiyPropertyChanged("Column"); }
+            }
+
+            //イベントが実装されてれば実行する。
+            private void NotifiyPropertyChanged(String propertyName)
+            {
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+                }
             }
         }
 
@@ -795,5 +845,33 @@ namespace LogosKlotho
         }
 
         
+    }
+
+    public class StatusLineConvert : IValueConverter
+    {
+        object IValueConverter.Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            return "Line: " + ((int)value).ToString();
+        }
+        object IValueConverter.ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            int a = 0;
+            int.TryParse(((string)value).Substring(0, ((string)value).Length - 1), out a);
+            return a;
+        }
+    }
+
+    public class StatusColumnConvert : IValueConverter
+    {
+        object IValueConverter.Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            return "Column: " + ((int)value).ToString();
+        }
+        object IValueConverter.ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            int a = 0;
+            int.TryParse(((string)value).Substring(0, ((string)value).Length - 1), out a);
+            return a;
+        }
     }
 }
