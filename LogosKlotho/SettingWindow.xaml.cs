@@ -33,5 +33,7 @@ namespace LogosKlotho
         public bool EnableAutoComplete { get; set; } = true;
 
         public bool EnableAutoIndent { get; set; } = true;
+
+        public bool EnableWordWrap { get; set; } = false;
     }
 }

@@ -118,5 +118,17 @@ namespace LogosKlotho.Properties {
                 this["enable_autoindent"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool enable_wordwrap {
+            get {
+                return ((bool)(this["enable_wordwrap"]));
+            }
+            set {
+                this["enable_wordwrap"] = value;
+            }
+        }
     }
 }

@@ -141,6 +141,10 @@ namespace LogosKlotho
             {
                 EnableAutoIndent = false;
             }
+            if (Properties.Settings.Default.enable_wordwrap)
+            {
+                textEditor.WordWrap = true;
+            }
         }
 
         
@@ -818,6 +822,7 @@ namespace LogosKlotho
             setting.ShowLineNumber = Properties.Settings.Default.show_linenumber;
             setting.EnableAutoComplete = Properties.Settings.Default.enable_autocomplete;
             setting.EnableAutoIndent = Properties.Settings.Default.enable_autoindent;
+            setting.EnableWordWrap = Properties.Settings.Default.enable_wordwrap;
             setting.ShowDialog();
             bool change = false;
             if(Properties.Settings.Default.show_statusbar != setting.ShowStatusBar)
@@ -843,6 +848,12 @@ namespace LogosKlotho
             {
                 EnableAutoIndent = setting.EnableAutoIndent;
                 Properties.Settings.Default.enable_autoindent = setting.EnableAutoIndent;
+                change = true;
+            }
+            if (Properties.Settings.Default.enable_wordwrap != setting.EnableWordWrap)
+            {
+                textEditor.WordWrap = setting.EnableWordWrap;
+                Properties.Settings.Default.enable_wordwrap = setting.EnableWordWrap;
                 change = true;
             }
             if (change)

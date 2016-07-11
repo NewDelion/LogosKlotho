@@ -1,26 +1,50 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogosKlotho", "LogosKlotho\LogosKlotho.csproj", "{EC6C4B9B-2461-4327-B2CF-0DC8AFF88400}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakeHierarchyFiles", "..\..\..\Documents\Visual Studio 2013\Projects\LogosKlotho\MakeHierarchyFiles\MakeHierarchyFiles.csproj", "{2B4B0B7D-5FB9-47EE-976F-9BEA988AEAF9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakeHierarchyFiles", "..\..\Visual Studio 2013\Projects\LogosKlotho\MakeHierarchyFiles\MakeHierarchyFiles.csproj", "{2B4B0B7D-5FB9-47EE-976F-9BEA988AEAF9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|Net35 = Debug|Net35
+		Debug|Net40 = Debug|Net40
+		Debug|WithNRefactory = Debug|WithNRefactory
 		Release|Any CPU = Release|Any CPU
+		Release|Net35 = Release|Net35
+		Release|Net40 = Release|Net40
+		Release|WithNRefactory = Release|WithNRefactory
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{EC6C4B9B-2461-4327-B2CF-0DC8AFF88400}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EC6C4B9B-2461-4327-B2CF-0DC8AFF88400}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC6C4B9B-2461-4327-B2CF-0DC8AFF88400}.Debug|Net35.ActiveCfg = Debug|Any CPU
+		{EC6C4B9B-2461-4327-B2CF-0DC8AFF88400}.Debug|Net35.Build.0 = Debug|Any CPU
+		{EC6C4B9B-2461-4327-B2CF-0DC8AFF88400}.Debug|Net40.ActiveCfg = Debug|Any CPU
+		{EC6C4B9B-2461-4327-B2CF-0DC8AFF88400}.Debug|Net40.Build.0 = Debug|Any CPU
+		{EC6C4B9B-2461-4327-B2CF-0DC8AFF88400}.Debug|WithNRefactory.ActiveCfg = Debug|Any CPU
+		{EC6C4B9B-2461-4327-B2CF-0DC8AFF88400}.Debug|WithNRefactory.Build.0 = Debug|Any CPU
 		{EC6C4B9B-2461-4327-B2CF-0DC8AFF88400}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC6C4B9B-2461-4327-B2CF-0DC8AFF88400}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC6C4B9B-2461-4327-B2CF-0DC8AFF88400}.Release|Net35.ActiveCfg = Release|Any CPU
+		{EC6C4B9B-2461-4327-B2CF-0DC8AFF88400}.Release|Net35.Build.0 = Release|Any CPU
+		{EC6C4B9B-2461-4327-B2CF-0DC8AFF88400}.Release|Net40.ActiveCfg = Release|Any CPU
+		{EC6C4B9B-2461-4327-B2CF-0DC8AFF88400}.Release|Net40.Build.0 = Release|Any CPU
+		{EC6C4B9B-2461-4327-B2CF-0DC8AFF88400}.Release|WithNRefactory.ActiveCfg = Release|Any CPU
+		{EC6C4B9B-2461-4327-B2CF-0DC8AFF88400}.Release|WithNRefactory.Build.0 = Release|Any CPU
 		{2B4B0B7D-5FB9-47EE-976F-9BEA988AEAF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2B4B0B7D-5FB9-47EE-976F-9BEA988AEAF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B4B0B7D-5FB9-47EE-976F-9BEA988AEAF9}.Debug|Net35.ActiveCfg = Debug|Any CPU
+		{2B4B0B7D-5FB9-47EE-976F-9BEA988AEAF9}.Debug|Net40.ActiveCfg = Debug|Any CPU
+		{2B4B0B7D-5FB9-47EE-976F-9BEA988AEAF9}.Debug|WithNRefactory.ActiveCfg = Debug|Any CPU
 		{2B4B0B7D-5FB9-47EE-976F-9BEA988AEAF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B4B0B7D-5FB9-47EE-976F-9BEA988AEAF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B4B0B7D-5FB9-47EE-976F-9BEA988AEAF9}.Release|Net35.ActiveCfg = Release|Any CPU
+		{2B4B0B7D-5FB9-47EE-976F-9BEA988AEAF9}.Release|Net40.ActiveCfg = Release|Any CPU
+		{2B4B0B7D-5FB9-47EE-976F-9BEA988AEAF9}.Release|WithNRefactory.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

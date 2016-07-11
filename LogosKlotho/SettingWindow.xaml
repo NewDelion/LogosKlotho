@@ -6,11 +6,12 @@
         xmlns:local="clr-namespace:LogosKlotho"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="SettingWindow" Height="125" Width="400">
+        Title="設定" Height="175" Width="400">
     <StackPanel>
-        <CheckBox Content="ステータスバーを表示する" IsChecked="{Binding ShowStatusBar, Mode=TwoWay}" Margin="10, 10, 10, 0" />
-        <CheckBox Content="行番号を表示する" IsChecked="{Binding ShowLineNumber, Mode=TwoWay}" Margin="10, 0, 10, 0" />
-        <CheckBox Content="入力補完を有効にする" IsChecked="{Binding EnableAutoComplete, Mode=TwoWay}" Margin="10, 0, 10, 0" />
-        <CheckBox Content="自動インデントを有効にする" IsChecked="{Binding EnableAutoIndent, Mode=TwoWay}" Margin="10, 0, 10, 0" />
+        <CheckBox Content="ステータスバーを表示する" IsChecked="{Binding ShowStatusBar, Mode=TwoWay}" Margin="10, 10, 10, 0" FontSize="16" />
+        <CheckBox Content="行番号を表示する" IsChecked="{Binding ShowLineNumber, Mode=TwoWay}" Margin="10, 0, 10, 0" FontSize="16" />
+        <CheckBox Content="入力補完を有効にする" IsChecked="{Binding EnableAutoComplete, Mode=TwoWay}" Margin="10, 0, 10, 0" FontSize="16" />
+        <CheckBox Content="自動インデントを有効にする" IsChecked="{Binding EnableAutoIndent, Mode=TwoWay}" Margin="10, 0, 10, 0" FontSize="16" />
+        <CheckBox Content="テキストの折り返し" IsChecked="{Binding EnableWordWrap, Mode=TwoWay}" Margin="10, 0, 10, 0" FontSize="16" />
     </StackPanel>
 </Window>
