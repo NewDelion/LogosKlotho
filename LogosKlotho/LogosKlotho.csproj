@@ -35,7 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FindReplace">
-      <HintPath>..\..\..\FindReplaceTest-noexe\FindReplaceTest\FindReplace\bin\Release\FindReplace.dll</HintPath>
+      <HintPath>..\packages\FindReplace\FindReplace.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.AvalonEdit, Version=5.0.3.0, Culture=neutral, PublicKeyToken=9cc39be672370310, processorArchitecture=MSIL">
       <HintPath>..\packages\AvalonEdit.5.0.3\lib\Net40\ICSharpCode.AvalonEdit.dll</HintPath>

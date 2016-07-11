@@ -97,9 +97,9 @@ namespace LogosKlotho
                 System.IO.File.WriteAllText("setting\\ord_def_function_list", Properties.Resources.ord_def_function_list);
 
 
-            ord_word_list = System.IO.File.ReadAllLines("ord_word_list").Where(d => d != "").ToList();
-            ord_function_list = System.IO.File.ReadAllLines("ord_function_list").Where(d => d != "").ToList();
-            ord_def_function_list = System.IO.File.ReadAllLines("ord_def_function_list").Where(d => d != "").ToList();
+            ord_word_list = System.IO.File.ReadAllLines("setting\\ord_word_list").Where(d => d != "").ToList();
+            ord_function_list = System.IO.File.ReadAllLines("setting\\ord_function_list").Where(d => d != "").ToList();
+            ord_def_function_list = System.IO.File.ReadAllLines("setting\\ord_def_function_list").Where(d => d != "").ToList();
         }
 
         
@@ -208,6 +208,7 @@ namespace LogosKlotho
                     }
                     if (completionWindow.CompletionList.ListBox.Items.Count == 0)
                     {
+                        completionWindow.Close();
                         completionWindow = null;
                     }
                     else
@@ -495,6 +496,8 @@ namespace LogosKlotho
                         check = false;
                     else if (textEditor.Text[index] == '\r' || textEditor.Text[index] == '\t' || textEditor.Text[index] == ' ')
                         continue;
+                    else if (index >= 4 && textEditor.Text.Substring(index - 4, 5).Equals("<?php"))
+                        check = false;
                     else
                         break;
                 }
