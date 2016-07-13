@@ -26,14 +26,26 @@ namespace LogosKlotho
             DataContext = this;
         }
 
-        public bool ShowStatusBar { get; set; } = true;
+        public bool ShowStatusBar { get; set; }
 
-        public bool ShowLineNumber { get; set; } = true;
+        public bool ShowLineNumber { get; set; }
 
-        public bool EnableAutoComplete { get; set; } = true;
+        public bool EnableAutoComplete { get; set; }
 
-        public bool EnableAutoIndent { get; set; } = true;
+        public bool EnableAutoIndent { get; set; }
 
-        public bool EnableWordWrap { get; set; } = false;
+        public bool EnableWordWrap { get; set; }
+
+        public bool ShowNewLine { get; set; }
+        public string NewLine { get; set; }
+
+        public bool ShowTab { get; set; }
+        public string Tab { get; set; }
+
+        public bool ShowSpace { get; set; }
+        public string Space { get; set; }
+
+        public bool ShowSpaceJpn { get; set; }
+        public string SpaceJpn { get; set; }
     }
 }

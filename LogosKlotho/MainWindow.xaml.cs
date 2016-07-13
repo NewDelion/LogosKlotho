@@ -145,6 +145,27 @@ namespace LogosKlotho
             {
                 textEditor.WordWrap = true;
             }
+
+            if (Properties.Settings.Default.show_newline)
+            {
+                textEditor.Options.ShowEndOfLine = true;
+                textEditor.Options.NewLine = Properties.Settings.Default.newline;
+            }
+            if (Properties.Settings.Default.show_tab)
+            {
+                textEditor.Options.ShowTabs = true;
+                textEditor.Options.Tab = Properties.Settings.Default.tab;
+            }
+            if (Properties.Settings.Default.show_space)
+            {
+                textEditor.Options.ShowSpaces = true;
+                textEditor.Options.Space = Properties.Settings.Default.space;
+            }
+            if (Properties.Settings.Default.show_space_jpn)
+            {
+                textEditor.Options.ShowSpacesJpn = true;
+                textEditor.Options.SpacesJpn = Properties.Settings.Default.space_jpn;
+            }
         }
 
         
@@ -823,6 +844,14 @@ namespace LogosKlotho
             setting.EnableAutoComplete = Properties.Settings.Default.enable_autocomplete;
             setting.EnableAutoIndent = Properties.Settings.Default.enable_autoindent;
             setting.EnableWordWrap = Properties.Settings.Default.enable_wordwrap;
+            setting.ShowNewLine = Properties.Settings.Default.show_newline;
+            setting.NewLine = Properties.Settings.Default.newline;
+            setting.ShowTab = Properties.Settings.Default.show_tab;
+            setting.Tab = Properties.Settings.Default.tab;
+            setting.ShowSpace = Properties.Settings.Default.show_space;
+            setting.Space = Properties.Settings.Default.space;
+            setting.ShowSpaceJpn = Properties.Settings.Default.show_space_jpn;
+            setting.SpaceJpn = Properties.Settings.Default.space_jpn;
             setting.ShowDialog();
             bool change = false;
             if(Properties.Settings.Default.show_statusbar != setting.ShowStatusBar)
@@ -854,6 +883,50 @@ namespace LogosKlotho
             {
                 textEditor.WordWrap = setting.EnableWordWrap;
                 Properties.Settings.Default.enable_wordwrap = setting.EnableWordWrap;
+                change = true;
+            }
+            if (Properties.Settings.Default.show_newline != setting.ShowNewLine)
+            {
+                textEditor.Options.ShowEndOfLine = setting.ShowNewLine;
+                Properties.Settings.Default.show_newline = setting.ShowNewLine;
+                if (Properties.Settings.Default.newline != setting.NewLine)
+                {
+                    textEditor.Options.NewLine = setting.NewLine;
+                    Properties.Settings.Default.newline = setting.NewLine;
+                }
+                change = true;
+            }
+            if (Properties.Settings.Default.show_tab != setting.ShowTab)
+            {
+                textEditor.Options.ShowTabs = setting.ShowTab;
+                Properties.Settings.Default.show_tab = setting.ShowTab;
+                if (Properties.Settings.Default.tab != setting.Tab)
+                {
+                    textEditor.Options.Tab = setting.Tab;
+                    Properties.Settings.Default.tab = setting.Tab;
+                }
+                change = true;
+            }
+            if (Properties.Settings.Default.show_space != setting.ShowSpace)
+            {
+                textEditor.Options.ShowSpaces = setting.ShowSpace;
+                Properties.Settings.Default.show_space = setting.ShowSpace;
+                if (Properties.Settings.Default.space != setting.Space)
+                {
+                    textEditor.Options.Space = setting.Space;
+                    Properties.Settings.Default.space = setting.Space;
+                }
+                change = true;
+            }
+            if (Properties.Settings.Default.show_space_jpn != setting.ShowSpaceJpn)
+            {
+                textEditor.Options.ShowSpacesJpn = setting.ShowSpaceJpn;
+                Properties.Settings.Default.show_space_jpn = setting.ShowSpaceJpn;
+                if (Properties.Settings.Default.space_jpn != setting.SpaceJpn)
+                {
+                    textEditor.Options.SpacesJpn = setting.SpaceJpn;
+                    Properties.Settings.Default.space_jpn = setting.SpaceJpn;
+                }
                 change = true;
             }
             if (change)

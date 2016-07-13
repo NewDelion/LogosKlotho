@@ -29,5 +29,29 @@
     <Setting Name="enable_wordwrap" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="newline" Type="System.String" Scope="User">
+      <Value Profile="(Default)">↓</Value>
+    </Setting>
+    <Setting Name="tab" Type="System.String" Scope="User">
+      <Value Profile="(Default)">»</Value>
+    </Setting>
+    <Setting Name="space" Type="System.String" Scope="User">
+      <Value Profile="(Default)">·</Value>
+    </Setting>
+    <Setting Name="space_jpn" Type="System.String" Scope="User">
+      <Value Profile="(Default)">・</Value>
+    </Setting>
+    <Setting Name="show_newline" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="show_tab" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="show_space" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="show_space_jpn" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
