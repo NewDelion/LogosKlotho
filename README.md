@@ -3,8 +3,9 @@ PocketMine-MP専用プラグインエディタ
 
 ## インストーラ
 https://github.com/NewDelion/LogosKlotho/raw/master/LogosKlotho.zip
-## zip版(どっちもzipになってるけどw)。好きな場所に解凍して使えます(.NET framework4.5のインストールが必要)
+## zip版(どっちもzipになってるけどw)
 https://github.com/NewDelion/LogosKlotho/raw/master/LogosKlotho-zip.zip
+### ※好きな場所に解凍して使えます(.NET framework4.5のインストールが必要)
 
 ## アップデート
 
