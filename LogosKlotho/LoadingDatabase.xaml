@@ -2,8 +2,8 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         ResizeMode="NoResize"
-        Title="LoadingDatabase" Height="130" Width="340" Closing="Window_Closing" Loaded="Window_Loaded">
+        Title="LoadingDatabase" Height="120" Width="420" Closing="Window_Closing" Loaded="Window_Loaded">
     <Grid>
-        <TextBlock Text="{Binding Text, Mode=OneWay}" Name="waiting_text" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" />
+        <TextBlock Text="{Binding Text, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Name="waiting_text" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" />
     </Grid>
 </Window>
