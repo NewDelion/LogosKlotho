@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:LogosKlotho"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="設定" Height="480" Width="320">
+        Title="設定" Height="520" Width="320">
     <StackPanel>
         <StackPanel>
             <CheckBox Content="ステータスバーを表示する" IsChecked="{Binding ShowStatusBar, Mode=TwoWay}" Margin="10, 10, 10, 0" FontSize="16" />
