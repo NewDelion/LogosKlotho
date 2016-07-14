@@ -39,19 +39,19 @@
       <Value Profile="(Default)">·</Value>
     </Setting>
     <Setting Name="space_jpn" Type="System.String" Scope="User">
-      <Value Profile="(Default)">・</Value>
+      <Value Profile="(Default)">@</Value>
     </Setting>
     <Setting Name="show_newline" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="show_tab" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="show_space" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="show_space_jpn" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>
