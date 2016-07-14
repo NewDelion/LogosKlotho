@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:LogosKlotho"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="設定" Height="420" Width="370">
+        Title="設定" Height="480" Width="320">
     <StackPanel>
         <StackPanel>
             <CheckBox Content="ステータスバーを表示する" IsChecked="{Binding ShowStatusBar, Mode=TwoWay}" Margin="10, 10, 10, 0" FontSize="16" />
@@ -15,34 +15,28 @@
             <CheckBox Content="自動インデントを有効にする" IsChecked="{Binding EnableAutoIndent, Mode=TwoWay}" Margin="10, 0, 10, 0" FontSize="16" />
             <CheckBox Content="テキストの折り返し" IsChecked="{Binding EnableWordWrap, Mode=TwoWay}" Margin="10, 0, 10, 0" FontSize="16" />
         </StackPanel>
-        <StackPanel>
-            <CheckBox Content="改行を表示する" IsChecked="{Binding ShowNewLine, Mode=TwoWay}" Margin="10, 8, 0, 0" Name="check_newline" FontSize="16" />
-            <StackPanel Orientation="Horizontal" >
-                <Label Content="表示する文字：" FontSize="13.3332" Margin="20,0,0,0" />
-                <TextBox Text="{Binding NewLine, Mode=TwoWay}" Width="44" Height="24" TextAlignment="Center" HorizontalAlignment="Left" Margin="4,4,0,4" MaxLength="1" IsEnabled="{Binding IsChecked, ElementName=check_newline}" FontSize="13.3332" />
-            </StackPanel>
-            <StackPanel>
-                <CheckBox Content="タブを表示する" IsChecked="{Binding ShowTab, Mode=TwoWay}" Margin="10, 8, 0, 0" Name="check_tab" FontSize="16" />
-                <StackPanel Orientation="Horizontal" >
-                    <Label Content="表示する文字：" FontSize="13.3332" Margin="20,0,0,0" />
-                    <TextBox Text="{Binding Tab, Mode=TwoWay}" Width="44" Height="24" TextAlignment="Center" HorizontalAlignment="Left" Margin="4,4,0,4" MaxLength="1" IsEnabled="{Binding IsChecked, ElementName=check_tab}" FontSize="13.3332" />
-                </StackPanel>
-            </StackPanel>
-            <StackPanel>
-                <CheckBox Content="スペースを表示する" IsChecked="{Binding ShowSpace, Mode=TwoWay}" Margin="10, 8, 0, 0" Name="check_space" FontSize="16" />
-                <StackPanel Orientation="Horizontal" >
-                    <Label Content="表示する文字：" FontSize="13.3332" Margin="20,0,0,0" />
-                    <TextBox Text="{Binding Space, Mode=TwoWay}" Width="44" Height="24" TextAlignment="Center" HorizontalAlignment="Left" Margin="4,4,0,4" MaxLength="1" IsEnabled="{Binding IsChecked, ElementName=check_space}" FontSize="13.3332" />
-                </StackPanel>
-            </StackPanel>
-            <StackPanel>
-                <CheckBox Content="全角スペースを表示する" IsChecked="{Binding ShowSpaceJpn, Mode=TwoWay}" Margin="10, 8, 0, 0" Name="check_space_jpn" FontSize="16" />
-                <StackPanel Orientation="Horizontal" >
-                    <Label Content="表示する文字：" FontSize="13.3332" Margin="20,0,0,0" />
-                    <TextBox Text="{Binding SpaceJpn, Mode=TwoWay}" Width="44" Height="24" TextAlignment="Center" HorizontalAlignment="Left" Margin="4,4,0,4" MaxLength="1" IsEnabled="{Binding IsChecked, ElementName=check_space_jpn}" FontSize="13.3332" />
-                </StackPanel>
-            </StackPanel>
+        <CheckBox Content="改行を表示する" IsChecked="{Binding ShowNewLine, Mode=TwoWay}" Margin="10, 8, 0, 0" Name="check_newline" FontSize="16" />
+        <StackPanel Orientation="Horizontal" >
+            <Label Content="表示する文字：" FontSize="13.3332" Margin="20,0,0,0" />
+            <TextBox Text="{Binding NewLine, Mode=TwoWay}" Width="44" Height="24" TextAlignment="Center" HorizontalAlignment="Left" Margin="4,4,0,4" MaxLength="1" IsEnabled="{Binding IsChecked, ElementName=check_newline}" FontSize="13.3332" />
         </StackPanel>
+        <CheckBox Content="タブを表示する" IsChecked="{Binding ShowTab, Mode=TwoWay}" Margin="10, 8, 0, 0" Name="check_tab" FontSize="16" />
+        <StackPanel Orientation="Horizontal" >
+            <Label Content="表示する文字：" FontSize="13.3332" Margin="20,0,0,0" />
+            <TextBox Text="{Binding Tab, Mode=TwoWay}" Width="44" Height="24" TextAlignment="Center" HorizontalAlignment="Left" Margin="4,4,0,4" MaxLength="1" IsEnabled="{Binding IsChecked, ElementName=check_tab}" FontSize="13.3332" />
+        </StackPanel>
+        <CheckBox Content="スペースを表示する" IsChecked="{Binding ShowSpace, Mode=TwoWay}" Margin="10, 8, 0, 0" Name="check_space" FontSize="16" />
+        <StackPanel Orientation="Horizontal" >
+            <Label Content="表示する文字：" FontSize="13.3332" Margin="20,0,0,0" />
+            <TextBox Text="{Binding Space, Mode=TwoWay}" Width="44" Height="24" TextAlignment="Center" HorizontalAlignment="Left" Margin="4,4,0,4" MaxLength="1" IsEnabled="{Binding IsChecked, ElementName=check_space}" FontSize="13.3332" />
+        </StackPanel>
+        <CheckBox Content="全角スペースを表示する" IsChecked="{Binding ShowSpaceJpn, Mode=TwoWay}" Margin="10, 8, 0, 0" Name="check_space_jpn" FontSize="16" />
+        <StackPanel Orientation="Horizontal" >
+            <Label Content="表示する文字：" FontSize="13.3332" Margin="20,0,0,0" />
+            <TextBox Text="{Binding SpaceJpn, Mode=TwoWay}" Width="44" Height="24" TextAlignment="Center" HorizontalAlignment="Left" Margin="4,4,0,4" MaxLength="1" IsEnabled="{Binding IsChecked, ElementName=check_space_jpn}" FontSize="13.3332" />
+        </StackPanel>
+        <Button Content="設定をエクスポートする" Margin="10, 10, 10, 2" Click="Button_Export" />
+        <Button Content="設定をインポートする" Margin="10, 10, 10, 2" Click="Button_Import" />
     </StackPanel>
 
 </Window>

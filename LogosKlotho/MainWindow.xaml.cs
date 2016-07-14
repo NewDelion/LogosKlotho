@@ -34,9 +34,9 @@ namespace LogosKlotho
     public partial class MainWindow : Window
     {
         private CompletionWindow completionWindow;
-        private List<Directory_Class> directory_list = null;
-        private List<File_Class> file_list = null;
-        private List<Function_Class> function_list = null;
+        public List<Directory_Class> directory_list = null;
+        public List<File_Class> file_list = null;
+        public List<Function_Class> function_list = null;
 
         private List<string> ord_word_list = null;
         private List<string> ord_function_list = null;
@@ -418,10 +418,13 @@ namespace LogosKlotho
                 }
             }
 
-            directory_list = new List<Directory_Class>();
+            LoadingDatabase ld = new LoadingDatabase();
+            /*directory_list = new List<Directory_Class>();
             file_list = new List<File_Class>();
             function_list = new List<Function_Class>();
-            ReadHierarchy("hierarchy", current_owner_id);
+            ReadHierarchy("hierarchy", current_owner_id);*/
+            ld.owner = this;
+            ld.ShowDialog();
             return;
 
             //directory_list = new List<Directory_Class>();
@@ -889,44 +892,48 @@ namespace LogosKlotho
             {
                 textEditor.Options.ShowEndOfLine = setting.ShowNewLine;
                 Properties.Settings.Default.show_newline = setting.ShowNewLine;
-                if (Properties.Settings.Default.newline != setting.NewLine)
-                {
-                    textEditor.Options.NewLine = setting.NewLine;
-                    Properties.Settings.Default.newline = setting.NewLine;
-                }
+                change = true;
+            }
+            if (Properties.Settings.Default.newline != setting.NewLine)
+            {
+                textEditor.Options.NewLine = setting.NewLine;
+                Properties.Settings.Default.newline = setting.NewLine;
                 change = true;
             }
             if (Properties.Settings.Default.show_tab != setting.ShowTab)
             {
                 textEditor.Options.ShowTabs = setting.ShowTab;
                 Properties.Settings.Default.show_tab = setting.ShowTab;
-                if (Properties.Settings.Default.tab != setting.Tab)
-                {
-                    textEditor.Options.Tab = setting.Tab;
-                    Properties.Settings.Default.tab = setting.Tab;
-                }
+                change = true;
+            }
+            if (Properties.Settings.Default.tab != setting.Tab)
+            {
+                textEditor.Options.Tab = setting.Tab;
+                Properties.Settings.Default.tab = setting.Tab;
                 change = true;
             }
             if (Properties.Settings.Default.show_space != setting.ShowSpace)
             {
                 textEditor.Options.ShowSpaces = setting.ShowSpace;
                 Properties.Settings.Default.show_space = setting.ShowSpace;
-                if (Properties.Settings.Default.space != setting.Space)
-                {
-                    textEditor.Options.Space = setting.Space;
-                    Properties.Settings.Default.space = setting.Space;
-                }
+                change = true;
+            }
+            if (Properties.Settings.Default.space != setting.Space)
+            {
+                textEditor.Options.Space = setting.Space;
+                Properties.Settings.Default.space = setting.Space;
                 change = true;
             }
             if (Properties.Settings.Default.show_space_jpn != setting.ShowSpaceJpn)
             {
                 textEditor.Options.ShowSpacesJpn = setting.ShowSpaceJpn;
                 Properties.Settings.Default.show_space_jpn = setting.ShowSpaceJpn;
-                if (Properties.Settings.Default.space_jpn != setting.SpaceJpn)
-                {
-                    textEditor.Options.SpacesJpn = setting.SpaceJpn;
-                    Properties.Settings.Default.space_jpn = setting.SpaceJpn;
-                }
+                change = true;
+            }
+            if (Properties.Settings.Default.space_jpn != setting.SpaceJpn)
+            {
+                textEditor.Options.SpacesJpn = setting.SpaceJpn;
+                Properties.Settings.Default.space_jpn = setting.SpaceJpn;
                 change = true;
             }
             if (change)
